@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   Material(
-                    color: Colors.black,
+                    color: Colors.deepPurple,
                     borderRadius: BorderRadius.circular(changedButton ? 40 : 8),
                     child: InkWell(
                       onTap: () => moveToHome(context),
