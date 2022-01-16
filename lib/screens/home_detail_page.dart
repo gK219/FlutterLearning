@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/models/catalog.dart';
-import 'package:my_flutter_app/utils/routes.dart';
 import 'package:my_flutter_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -17,19 +16,19 @@ class HomeDetailPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
         ),
-        backgroundColor: MyTheme.creamColor,
+        backgroundColor: context.canvasColor,
         bottomNavigationBar: Container(
-          color: Colors.white,
+          color: context.cardColor,
           child: ButtonBar(
             alignment: MainAxisAlignment.spaceBetween,
             buttonPadding: Vx.mH8,
             children: [
               "\$${catalog.price}".text.bold.xl2.red500.make(),
               ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+                onPressed: () {},
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                      MyTheme.darkBluish,
+                      context.theme.buttonColor,
                     ),
                     shape: MaterialStateProperty.all(
                       StadiumBorder(),
@@ -54,9 +53,9 @@ class HomeDetailPage extends StatelessWidget {
                 edge: VxEdge.TOP,
                 child: Container(
                   width: context.screenWidth,
-                  color: Colors.white,
+                  color: context.cardColor,
                   child: Column(children: [
-                    catalog.name.text.xl4.color(MyTheme.darkBluish).bold.make(),
+                    catalog.name.text.xl4.color(context.accentColor).bold.make(),
                     catalog.desc.text.caption(context).make(),
                     10.heightBox,
                     "this ti fdgifdfer egj ejnrif efefbrueif rjefbefjsnf jfefnekjff jejefejf efjebfef efejfe fjef ewh ajfb hhfjffkf hffhfjf eh ehf ehehkef nininf eub u  eujs,jfj ,,uebfbf jbfjfasnbkjfbibj  ufjdfjdfdfdfdf fdfjf dfjbfueifn"

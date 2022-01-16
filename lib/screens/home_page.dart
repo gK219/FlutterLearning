@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:my_flutter_app/models/catalog.dart';
+import 'package:my_flutter_app/utils/routes.dart';
 import 'package:my_flutter_app/widgets/home_widgets/catalog_header.dart';
 import 'package:my_flutter_app/widgets/home_widgets/catalog_list.dart';
 import 'package:my_flutter_app/widgets/themes.dart';
@@ -39,13 +40,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //final dummyList = List.generate(10, (index) => CatalogModel.item[0]);
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: MyTheme.darkBluish,
-        onPressed: () {
-
-        },
-        child: Icon(CupertinoIcons.cart),
+        backgroundColor: context.theme.buttonColor,
+        onPressed: () => Navigator.pushNamed(context,MyRoutes.cartRoute),
+        child: Icon(CupertinoIcons.cart,color: Colors.white,),
       ),
       body: SafeArea(
         child: Container(
@@ -57,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
                 CatalogList().py8().expand()
               else
-                CircularProgressIndicator().centered().py16().expand(),
+                CircularProgressIndicator(color: context.accentColor,).centered().py16().expand(),
             ],
           ),
         ),
