@@ -1,7 +1,17 @@
 import 'dart:convert';
 
+import 'dart:ffi';
+
 class CatalogModel {
   static late List<Item> items = [ ];
+
+
+  //Get Item by Id
+  static Item getById(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  // get Item by postion
+  static Item getByPosition( int pos) => items[pos] ;
 }
 
 class Item {

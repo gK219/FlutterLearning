@@ -33,7 +33,7 @@ class HomeDetailPage extends StatelessWidget {
                     shape: MaterialStateProperty.all(
                       StadiumBorder(),
                     )),
-                child: "Buy".text.make(),
+                child: "Buy".text.color(context.theme.errorColor).make(),
               ).wh(80,30)
             ],
           ).p20(),

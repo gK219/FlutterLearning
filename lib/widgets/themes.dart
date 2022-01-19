@@ -9,6 +9,7 @@ class MyTheme{
     fontFamily: GoogleFonts.poppins().fontFamily,
     cardColor: Colors.white,
     canvasColor: creamColor,
+    errorColor: Colors.white,
     buttonColor: darkBluish,
     accentColor: darkBluish,
     appBarTheme: AppBarTheme(
@@ -16,13 +17,14 @@ class MyTheme{
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.black),
         textTheme: Theme.of(context).textTheme,
-        titleTextStyle: Theme.of(context).textTheme.headline6
+        //titleTextStyle: Theme.of(context).textTheme.headline6
     ),);
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
       brightness: Brightness.dark,
       fontFamily: GoogleFonts.poppins().fontFamily,
       cardColor: Colors.black,
+      errorColor: darkRed,
       canvasColor: darkCreamColor,
       buttonColor: lightBluish,
       accentColor: Colors.white,
@@ -30,8 +32,10 @@ class MyTheme{
           color: Colors.white,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.white),
-          textTheme: Theme.of(context).textTheme,
-          titleTextStyle: Theme.of(context).textTheme.headline6
+          textTheme: Theme.of(context).textTheme.copyWith(
+            headline6: context.textTheme.headline6?.copyWith(color: Colors.white)
+          ),
+          //titleTextStyle: Theme.of(context).textTheme.headline6
     ),);
 
   //colors
@@ -39,5 +43,6 @@ class MyTheme{
   static Color creamColor = Color(0xfff5f5f5);
   static Color darkCreamColor = Vx.gray900;
   static Color darkBluish = Color(0xff403b58);
-  static Color lightBluish = Vx.indigo300;
+  static Color lightBluish = Vx.blue900;
+  static Color darkRed = Vx.red500;
 }
